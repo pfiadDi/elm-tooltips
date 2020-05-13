@@ -10,7 +10,7 @@ To achieve that we need two information:
 
 Both information are highly dynamic since they depend on the length of the text, the current width of the target element (since often the width of the target element is responsive).
 
-The overall logic therefore is:
+## The overall logic therefore is:
 
 - Toasts are definded in the model 
 - When a toast is called
@@ -25,7 +25,7 @@ The overall logic therefore is:
 # Usage
 
 A toast:
-```
+```elm
 type alias Toast =
     { textMsg : String
     , width : Maybe Float
@@ -40,7 +40,7 @@ type alias Toast =
 
 and a toast can have three states:
 
-```
+```elm
 type ToastStatus
     = None -- it exits as toast in your model 
     | CollectDimensions -- a invisible html exisits and we obtaining positon information
@@ -49,7 +49,7 @@ type ToastStatus
 
 
 All toasts in your model are a dict of toast:
-```
+```elm
 type alias Model = {
 ...
 formToasts : Dict.Dict String Toasts.Toast
@@ -59,7 +59,7 @@ formToasts : Dict.Dict String Toasts.Toast
 
 And define it on init like that:
 
-```
+```elm
 , formToasts =
         Dict.fromList
             [ ( "toastName", Toasts.defineToast "toastName" content.toastText )
@@ -70,7 +70,7 @@ And define it on init like that:
 
 You need a Toast msg which maps the messages from the module:
 
-```
+```elm
 type Msg 
  = ...
  | Toast Toasts.Msg
@@ -79,7 +79,7 @@ type Msg
 
 In your update you need to handle two messages from a Toast:
 
-```
+```elm
 Toast toastMsg ->
      case toastMsg of
        Toasts.TargetInfo toastId targetElement ->
@@ -104,7 +104,7 @@ Toast toastMsg ->
 
 You start the painting the toast in your update, e.g. in a case where a form field has a wrong input with
 
-```
+```elm
 update ...
    case msg of
       WrongInput ->
@@ -114,7 +114,7 @@ update ...
 
 If you want to delete a toast you do in your update:
 
-```
+```elm
 update ...
    case msg of
       CorrectInput ->
@@ -125,7 +125,7 @@ update ...
 
 It's important to render the toast in your view outside every other element. Therefore as a child of your body, that the position of no other element makes a problem. You do by placing this function in your view:
 
-```
+```elm
 view ...
  Toasts.renderToasts model.formToasts
 ```
@@ -137,7 +137,7 @@ Those functions help you update the toast in your model and return your model. Y
 ### Update a toast status:
 This function update a toast in the dict your model with the new status, either to start the processing of showing or to delete it. Since it takes your model and returns your model it is ready to be used with nested models.
 
-```
+```elm
 updateToastStatus : Toasts.ToastStatus -> String -> Model -> Model
 updateToastStatus nV toastId model =
     let
@@ -150,7 +150,7 @@ updateToastStatus nV toastId model =
 ### Update Width, X, and Y
 This is the second step in rendering, when the information from the target element comes in, with this function we update the toasts width and x and y position.
 
-```
+```elm
 updateToastWXY : Float -> Float -> Float -> String -> Model -> Model
 updateToastWXY w x y toastId model =
     let
@@ -163,7 +163,7 @@ updateToastWXY w x y toastId model =
 ### Update Height and Y position
 The last step to show the toast, this function update the last pieces and set the status to Show.
 
-```
+```elm
 updateToastHY : Float -> String -> Model -> Model
 updateToastHY h toastId model =
     let
