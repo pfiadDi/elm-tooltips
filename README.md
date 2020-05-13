@@ -10,7 +10,7 @@ To achieve that we need two information:
 
 Both information are highly dynamic since they depend on the length of the text, the current width of the target element (since often the width of the target element is responsive).
 
-<img src="https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true" width=250>
+<img src="https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true" width=500>
 
 
 The overall logic therefore is:
