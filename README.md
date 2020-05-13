@@ -1,6 +1,6 @@
 # elm-tooltips for form fields
 Tooltips which position relative to any element (I called them toast what I definitly not correct but now I stick with it :) )
-The toasts are positioned absolute what gives you more flexiblity since you don't need to place hidden elements in containers close to the target elements. When a toast should be shown we not only want to positionate them close to the target element but it should fit the screen and it should have the width of the input field:
+The toasts are positioned absolute what gives you more flexiblity since you don't need to place hidden elements in containers close to the target elements. When a toast should be shown we not only want to positionate them close to the target element but it should fit the screen and it should have a max-width of the input field:
 
 <img src="https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true" width=500>
 
