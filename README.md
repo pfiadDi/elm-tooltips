@@ -10,7 +10,7 @@ To achieve that we need two information:
 
 Both information are highly dynamic since they depend on the length of the text, the current width of the target element (since often the width of the target element is responsive).
 
-![The rendered tooltip](https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true =250px)
+![The rendered tooltip](https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true =250x)
 
 
 The overall logic therefore is:
