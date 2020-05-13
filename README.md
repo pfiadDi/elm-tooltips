@@ -2,16 +2,13 @@
 Tooltips which position relative to any element (I called them toast what I definitly not correct but now I stick with it :) )
 The toasts are positioned absolute what gives you more flexiblity since you don't need to place hidden elements in containers close to the target elements. When a toast should be shown we not only want to positionate them close to the target element but it should fit the screen and it should have the width of the input field:
 
-
+<img src="https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true" width=500>
 
 To achieve that we need two information:
 1. The current position of the target element
 2. And also the height of the toast, when the info text is insert and it has the width of the target element. 
 
 Both information are highly dynamic since they depend on the length of the text, the current width of the target element (since often the width of the target element is responsive).
-
-<img src="https://github.com/pfiadDi/elm-tooltips/blob/master/ReadMePicture.png?raw=true" width=500>
-
 
 The overall logic therefore is:
 
